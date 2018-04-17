@@ -6,9 +6,19 @@ The [Upscope](https://upscope.io/) javascript API allows you to customize the wa
 Once Upscope is installed on a webpage, the `window.Upscope` object will be available globally. You can call the `Upscope` function to interact with our API. All calls will be asyncronous and if you expect a return value will require a callback.
 
 ## TOC
-### Functions
-- [`Upscope('init', {...});`](#upscopeinit-)
-- [`Upscope('trackEvent', {...});`](#upscopetrackevent-)
+- [`Upscope('init', {...});`](#upscopeinit-): Initiate Upscope and set configuration
+- [`Upscope('trackEvent', {...});`](#upscopetrackevent-): Track custom events
+Init functions
+- [`Upscope('updateConnection', {...});`](#upscopeupdateconnection-): Update user info, log in or log out user in SPA
+- [`Upscope('trackUrl');`](#upscopetrackurl): Track URL change
+- [`Upscope('sendScreenshot');`](#upscopesendscreenshot): Take a screenshot of the page
+- [`Upscope('stopSession');`](#upscopestopsession): Stop screensharing
+- [`Upscope('integrate');`](#upscopeintegrate): Trigger live chat integration
+- [`Upscope('getUserId', cb);`](#upscopegetuserid-cb): Get the Upscope User ID
+- [`Upscope('getWatchLink', cb);`](#upscopegetwatchlink-cb): Get the Upscope watch URL
+- [`Upscope('getConnectionId', cb);`](#upscopegetconnectionid-cb): Get the Upscope connection id
+- [`Upscope('getLookupCode', cb);`](#upscopegetlookupcode-cb): Get the Upscope lookup code
+- [`Upscope('on', [...events], cb);`](#upscopeon-events-cb): Listen for Upscope events
 
 ## `Upscope('init', {...});`
 `Upscope('init')` is used to initialize the Upscope code. An optional second argument is passed with configuration attributes.
