@@ -1,5 +1,5 @@
-# js-api
-Api documentation for Upscope.io
+# Upscope's Javascript screen sharing API
+[Upscope](https://upscope.io/) is a co browsing service that allows you to build screen sharing into your website. Once installed, your support agents will be able to instantly see the user's browser without them having to do anything. 
 
 The [Upscope](https://upscope.io/) javascript API allows you to customize the way Upscope behaves on different pages.
 
