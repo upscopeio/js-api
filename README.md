@@ -1,5 +1,5 @@
 # Upscope's Javascript screen sharing API
-[Upscope](https://upscope.io/) is a co browsing service that allows you to build screen sharing into your website. Once installed, your support agents will be able to instantly see the user's browser without them having to do anything. 
+[Upscope](https://upscope.io/) is a co browsing service that allows you to build screen sharing into your website. Once installed, your support agents will be able to instantly see the user's browser without them having to do anything.
 
 The [Upscope](https://upscope.io/) javascript API allows you to customize the way Upscope behaves on different pages.
 
@@ -31,6 +31,8 @@ Init functions
 | `tags` | `undefined` | A list of strings to tag the user with (e.g. `['#visitor', '#high-value']`). Tags can only be alphanumeric characters, and can contain no spaces. If set to `null`, the identity info is cleared. If not set, nothing is changed. |
 | `lookupCode` | `undefined` | A quick lookup code for the user. This will be generated automatically when needed if it is not set. |
 | `requireAuthorizationForSession` | (Set through the admin interface) | Whether to ask for user authorization before screen sharing |
+| `authorizationPromptMessage` | (Set through the admin interface) | The text to display on the authorization prompt |
+| `endOfScreenshareMessage` | (Set through the admin interface) | If set to a string, it will `alert()` the string when a screen sharing session ends |
 | `integrateWithLivechat` | `true` | Whether to integrate automatically with live chat systems |
 | `sendScreenshotOnChatOpen` | (Set through the admin interface) | Whether to take a screenshot when use opens up livechat |
 | `sendScreenshotOnSessionStart` | (Set through the admin interface) | Whether to take a screenshot when screen sharing begins |
@@ -63,9 +65,10 @@ In addition to the above configuration, the `init` code contains functions used 
 ```js
 function (cb) {
   console.info('Upscope.io: Screen sharing request received');
-  cb(confirm('Would you like to let our agent see your screen?'));
+  cb(confirm(configuration.authorizationPromptMessage));
 }
 ```
+*Please note that the `configuration` object will not be available to your function, but can be retrieved with `window.Upscope._config`.*
 
 ### `formValueMiddleware(element)`
 `formValueMiddleware(element)` is called to retrieve the value of an input. **This is the default function:**
