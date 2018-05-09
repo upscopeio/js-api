@@ -119,6 +119,25 @@ function () {
   return code;
 }
 ```
+### `onRemoteClick(element)`
+`onRemoteClick(element)` is called when an agent clicks for the user. This can be changed to better integrate with javascript libraries. **This is the default function:**
+```js
+function(element) {
+  // Sends a simple click on Internet Explorer
+  if (Boolean(window.MSInputMethodContext) && Boolean(document.documentMode))
+    return element.click();
+​
+  var event = new MouseEvent('click', {
+    view: window,
+    bubbles: true,
+    cancelable: true
+  });
+  event.isUpscopeBrowserInstruction = true;
+  element.dispatchEvent(event);
+}
+```
+
+**Please ensure that `event.isUpscopeBrowserInstruction = true;` is present!**
 
 ## `Upscope('trackEvent', {...});`
 `Upscope('trackEvent', {...});` is used to track a custom event. The object can contain an arbitrary number of custom properties, but a `type` attribute is required.
