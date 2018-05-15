@@ -80,12 +80,12 @@ function (element) {
       (typeof element.getAttribute === 'function' && element.getAttribute('autocompletetype') === 'cc-number'))
     return maskedValue;
 
-  for (let maskedField of configuration.maskedFields) {
-    if (typeof element.matches === 'function' && element.matches(maskedField)) return maskedValue;
-    else if (typeof element.msMatchesSelector === 'function' && element.msMatchesSelector(maskedField)) return maskedValue;
-  }
-
   while (element) {
+    for (let maskedField of configuration.maskedElements) {
+      if (typeof element.matches === 'function' && element.matches(maskedField)) return maskedValue;
+      else if (typeof element.msMatchesSelector === 'function' && element.msMatchesSelector(maskedField)) return maskedValue;
+    }
+
     if (element.className && /\bno-upscope\b/.test(element.className))
       return maskedValue;
 
