@@ -7,11 +7,7 @@ Once Upscope is installed on a webpage, the `window.Upscope` object will be avai
 
 ## TOC
 - [`Upscope('init', {...});`](#upscopeinit-): Initiate Upscope and set configuration
-- [`Upscope('trackEvent', {...});`](#upscopetrackevent-): Track custom events
-Init functions
 - [`Upscope('updateConnection', {...});`](#upscopeupdateconnection-): Update user info, log in or log out user in SPA
-- [`Upscope('trackUrl');`](#upscopetrackurl): Track URL change
-- [`Upscope('sendScreenshot');`](#upscopesendscreenshot): Take a screenshot of the page
 - [`Upscope('stopSession');`](#upscopestopsession): Stop screensharing
 - [`Upscope('integrate');`](#upscopeintegrate): Trigger live chat integration
 - [`Upscope('getUserId', cb);`](#upscopegetuserid-cb): Get the Upscope User ID
@@ -34,10 +30,6 @@ Init functions
 | `authorizationPromptMessage` | (Set through the admin interface) | The text to display on the authorization prompt |
 | `endOfScreenshareMessage` | (Set through the admin interface) | If set to a string, it will `alert()` the string when a screen sharing session ends |
 | `integrateWithLivechat` | `true` | Whether to integrate automatically with live chat systems |
-| `sendScreenshotOnChatOpen` | (Set through the admin interface) | Whether to take a screenshot when use opens up livechat |
-| `sendScreenshotOnSessionStart` | (Set through the admin interface) | Whether to take a screenshot when screen sharing begins |
-| `trackLiveChatEvents` | `true` | Whether to track when user opens live chat window |
-| `trackEvents` | `['pageLoads', 'screenShares']` | Events to track automatically. Allowed values are `pageLoads`, `clicks`, `screenShares`. |
 | `showUpscopeLink` | (Set through the admin interface) | Whether to show a "Screen sharing by Upscope" link at the bottom left of the page while screen sharing |
 | `useLightPointer` | `false` | Whether use an inverted color version of the pointer for darker interfaces |
 | `autoconnect` | `true` | Whether to connect to Upscope server automatically |
@@ -139,18 +131,6 @@ function(element) {
 
 **Please ensure that `event.isUpscopeBrowserInstruction = true;` is present!**
 
-## `Upscope('trackEvent', {...});`
-`Upscope('trackEvent', {...});` is used to track a custom event. The object can contain an arbitrary number of custom properties, but a `type` attribute is required.
-
-### Example
-```js
-Upscope('trackEvent', {
-  type: 'purchase',
-  plan: 'large',
-  agentsCount: 55
-});
-```
-
 ## `Upscope('updateConnection', {...});`
 `Upscope('updateConnection', {...});` is used to update the authentication information of the user. It is used like `Upscope('init', {...});`, but can only accept the following properties: `identities`, `uniqueId`, `tags`, `lookupCode`.
 
@@ -171,9 +151,6 @@ Upscope('updateConnection', {
 
 ## `Upscope('trackUrl');`
 `Upscope('trackUrl');` is used to log a page view in a SPA.
-
-## `Upscope('sendScreenshot');`
-`Upscope('sendScreenshot');` is used to take a screenshot of the current page.
 
 ## `Upscope('stopSession');`
 `Upscope('stopSession');` is used to stop a currently active screen sharing session.
