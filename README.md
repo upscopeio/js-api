@@ -43,7 +43,7 @@ Once Upscope is installed on a webpage, the `window.Upscope` object will be avai
 | `injectLookupCodeButton` | (Set through the admin interface) | Whether to inject a button in the lower left of the page to show the 4 digit lookup code |
 | `disconnectAfterSeconds` | `600` | Number of seconds of inactivity after which Upscope disconnects from the server |
 | `proxyAssets` | (Set through the admin interface) | List of wildcard strings (e.g. `['*://localhost:*/*']`) to proxy when screen sharing. This is useful to allow screen sharing in development or staging environments |
-| `maskedFields` | (Set through the admin interface) | List of CSS selectors (e.g. `['.credit-card']`) to mask when screen sharing in addition to elements with a `no-upscope` CSS class. |
+| `maskedElements` | (Set through the admin interface) | List of CSS selectors (e.g. `['.credit-card']`) to mask when screen sharing in addition to elements with a `no-upscope` CSS class. |
 | `domChangesDelay` | `50` | Refresh rate of the page. Set to 50 so changes are shown right away, but can be higher on websites where a lot changes constantly to avoid the agent's browser slowing down |
 | `debug` | `sessionStorage.getItem('__upscope:debug') === 'on'` | Whether to turn debugging on or off |
 | `enableCanvases` | `true` | Whether to show canvases while screen sharing |
