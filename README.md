@@ -34,7 +34,6 @@ Once Upscope is installed on a webpage, the `window.Upscope` object will be avai
 | `callWaitMessage` | (Set through the admin interface) | This text will be shown to the user when they follow a call link |
 | `integrateWithLivechat` | `true` | Whether to integrate automatically with live chat systems |
 | `showUpscopeLink` | (Set through the admin interface) | Whether to show a "Screen sharing by Upscope" link at the bottom left of the page while screen sharing |
-| `useLightPointer` | `false` | Whether use an inverted color version of the pointer for darker interfaces |
 | `autoconnect` | `true` | Whether to connect to Upscope server automatically |
 | `trackConsole` | (Set through the admin interface) | Whether to track console content to display agents |
 | `allowRemoteConsole` | (Set through the admin interface) | Whether to allow agents (who have the right permissions) to execute remote console commands |
