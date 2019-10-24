@@ -8,14 +8,15 @@ Once Upscope is installed on a webpage, the `window.Upscope` object will be avai
 ## TOC
 - [`Upscope('init', {...});`](#upscopeinit-): Initiate Upscope and set configuration
 - [`Upscope('updateConnection', {...});`](#upscopeupdateconnection-): Update user info, log in or log out user in SPA
+- [`Upscope('connect');`](#upscopeconnect): Connects to Upscope when `autoconnect == false`
 - [`Upscope('stopSession');`](#upscopestopsession): Stop screensharing
 - [`Upscope('getUserId', cb);`](#upscopegetuserid-cb): Get the Upscope User ID
 - [`Upscope('getWatchLink', cb);`](#upscopegetwatchlink-cb): Get the Upscope watch URL
 - [`Upscope('getConnectionId', cb);`](#upscopegetconnectionid-cb): Get the Upscope connection id
 - [`Upscope('getLookupCode', cb);`](#upscopegetlookupcode-cb): Get the Upscope lookup code
-- [`Upscope('reset');`](#upscopereset): Resets the connection to Upscope
 - [`Upscope('requestAgent');`](#upscoperequestagent): Requests an agent's help
-- [`Upscope('cancelAgentRequest');`](#upscopecancelagentrequest): Cancels the request for agent help
+- [`Upscope('cancelRequestAgent');`](#upscopecancelrequestagent): Cancels the request for agent help
+- [`Upscope('reset');`](#upscopereset): Resets the connection to Upscope
 - [`Upscope('on', [...events], cb);`](#upscopeon-events-cb): Listen for Upscope events
 
 ## `Upscope('init', {...});`
@@ -43,7 +44,7 @@ Once Upscope is installed on a webpage, the `window.Upscope` object will be avai
 | `crossStorageEndpoint` | `https://storage.upscope.io/` | Instance of [cross-storage](https://github.com/zendesk/cross-storage) to use to save account data |
 | `lookupCodeElement` | (Set through the admin interface) | CSS selector or HTML element object to replace text of with 4 digit lookup code |
 | `injectLookupCodeButton` | (Set through the admin interface) | Whether to inject a button in the lower left of the page to show the 4 digit lookup code |
-| `disconnectAfterSeconds` | `600` | Number of seconds of inactivity after which Upscope disconnects from the server |
+| `disconnectAfterSeconds` | `600` | Number of seconds of inactivity after which Upscope disconnects from the server. This only applies if a session is not active, and the connection is re-established when the tab regains focus, the cursor is moved, or the keyboard is used. |
 | `proxyAssets` | (Set through the admin interface) | List of wildcard strings (e.g. `['*://localhost:*/*']`) to proxy when screen sharing. This is useful to allow screen sharing in development or staging environments |
 | `maskedElements` | (Set through the admin interface) | List of CSS selectors (e.g. `['.credit-card']`) to mask when screen sharing in addition to elements with a `no-upscope` CSS class. |
 | `domChangesDelay` | `50` | Refresh rate of the page. Set to 50 so changes are shown right away, but can be higher on websites where a lot changes constantly to avoid the agent's browser slowing down |
